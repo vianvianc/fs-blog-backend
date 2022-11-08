@@ -1,4 +1,5 @@
 import express from "express";
+import {MongoClient} from 'mongodb'
 
 let articlesInfo = [{
     name: 'elite-capture',
@@ -27,6 +28,10 @@ let articlesInfo = [{
 }]
 const app = express();
 app.use(express.json());
+
+app.get('/api/articles/:name', (req,res) => {
+   const {name} = req.params; 
+})
 
 app.put('/api/articles/:name/upvote', (req, res) => {
 const { name } = req.params;
