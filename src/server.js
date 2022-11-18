@@ -10,6 +10,7 @@ let articlesInfo = [
   {
     name: "overton-window",
     upvotes: 0,
+    
     comments: [],
   },
   {
@@ -41,8 +42,7 @@ app.get("/api/articles/:name", async (req, res) => {
   await client.connect();
   const db = client.db('react-blog-db');
   const article = await db.collection('articles').findOne({ name});
-  res.json
-(article)
+  res.json(article)
 });
 
 app.put("/api/articles/:name/upvote", (req, res) => {
