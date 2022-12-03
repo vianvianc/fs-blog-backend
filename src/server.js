@@ -9,12 +9,15 @@ let articlesInfo = [
   },
 
 
-  
+
   {
     name: "overton-window",
     upvotes: 0,
     
     comments: [],
+
+
+    
   },
   {
     name: "normalcy-bias",
