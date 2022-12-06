@@ -17,7 +17,7 @@ let articlesInfo = [
     comments: [],
 
 
-    
+
   },
   {
     name: "normalcy-bias",
@@ -47,6 +47,8 @@ app.get("/api/articles/:name", async (req, res) => {
   const client = new MongoClient('mongodb://127.0.0.1:27017');
   await client.connect();
   const db = client.db('react-blog-db');
+
+  
   const article = await db.collection('articles').findOne({ name});
   res.json(article)
 });
