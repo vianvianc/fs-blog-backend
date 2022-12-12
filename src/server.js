@@ -44,6 +44,7 @@ app.use(express.json());
 
 app.get("/api/articles/:name", async (req, res) => {
   const { name } = req.params;
+  
   const client = new MongoClient('mongodb://127.0.0.1:27017');
   await client.connect();
   const db = client.db('react-blog-db');
