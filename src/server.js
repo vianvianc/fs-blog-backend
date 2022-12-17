@@ -8,16 +8,11 @@ let articlesInfo = [
     comments: [],
   },
 
-
-
   {
     name: "overton-window",
     upvotes: 0,
-    
+
     comments: [],
-
-
-
   },
   {
     name: "normalcy-bias",
@@ -31,10 +26,7 @@ let articlesInfo = [
   },
   {
     name: "rabbit-holes",
-    
-    
-    
-    
+
     upvotes: 0,
     comments: [],
   },
@@ -44,23 +36,15 @@ app.use(express.json());
 
 app.get("/api/articles/:name", async (req, res) => {
   const { name } = req.params;
-  
 
-
-
-  const client = new MongoClient('mongodb://127.0.0.1:27017');
+  const client = new MongoClient("mongodb://127.0.0.1:27017");
   await client.connect();
 
-  
-  const db = client.db('react-blog-db');
+  const db = client.db("react-blog-db");
 
-  
-  const article = await db.collection('articles').findOne({ name});
-  res.json(article)
+  const article = await db.collection("articles").findOne({ name });
+  res.json(article);
 });
-
-
-
 
 app.put("/api/articles/:name/upvote", (req, res) => {
   const { name } = req.params;
